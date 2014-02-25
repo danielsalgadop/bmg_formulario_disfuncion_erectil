@@ -1,0 +1,243 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<head>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<title>Untitled Document</title>
+		<style type="text/css">
+		
+		@font-face {
+    font-family: DeliciousRoman;
+    src: url(http://www.webuzz.es/aplicaciones/bmg/fonts/Gotham-Bold.otf);
+    font-weight:400;
+}
+		
+		#w0 {
+		}
+body {
+	font-family: DeliciousRoman, Helvetica, Arial, sans-serif;
+	background-image: url(img/test_bg.jpg);
+	height: 646px;
+	width: 810px;
+	background-repeat: no-repeat;
+	word-spacing: 0,3;
+	letter-spacing: -1px;
+	font-size: 16px;
+}
+input {
+	margin-right: 5px;
+}
+.question {
+	float: left;
+	clear: left;
+	margin-left: 35px;
+	margin-bottom: 10px;
+	color: #4f9db6;
+	font-weight: bold;
+}
+		#w0, #w1, #w2, #w3, #w4, #w5, #w6, #w7, #w8,#r1,#r2,#r3,#suma_total{
+	background-color: #FFF;
+	width: 600px;
+	margin-right: auto;
+	margin-left: auto;
+	height: 300px;
+	padding-top: 15px;
+		}
+		#w0, #w1, #w2, #w3, #w4, #w5, #w6, #w7, #w8,#suma_total{
+		margin-top: 170px;
+		}
+		h1 {
+	margin-left: 35px;
+	font-size: 24px;
+	color: #666;
+	margin-top: 25px;
+		}
+		h2 {
+	width: 392px;
+	margin-right: auto;
+	margin-left: auto;
+	text-indent: -9999px;
+	background-repeat: no-repeat;
+	background-position: bottom;
+		}
+		
+		#r1, #r2, #r3{
+	height: 80px;
+	padding: 30px;
+		}
+#r1, #r2, #r3 p {
+	color: #999;
+}
+
+		.hidden { display: none; }
+#suma_total {
+	color: #4f9db6;
+	text-align: center;
+	padding: 30px;
+	font-size: 24px;
+	height: 1px;
+}
+a {
+	color: #4f9db6;
+	margin-right: auto;
+	margin-left: auto;
+}
+		#suma_total_number{
+	font-size: 100%;
+	height: 30px;
+		}
+		</style>
+		<!-- jQuery library (served from Google) -->
+		<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js"></script>
+		<!-- bxSlider Javascript file -->
+<script src="./js/jquery.bxslider.min.js"></script>
+		<!-- bxSlider CSS file -->
+		<link href="./jquery.bxslider.css" rel="stylesheet" />
+<script>
+		// function mostrarResults(suma_total){
+			// quitar el id_slider
+		// }
+		var cont_preguntas = 0;
+		var cont_suma_total = 0;   // valor obtenido por usuario tras pinchar los inputs
+		function mostrarResults(){  //suma_total va a ser una var global
+			// qutiar el slider
+			slider.destroySlider();
+			$('#slider').addClass('hidden');
+			// mostrar suma_total
+			$('#suma_total').removeClass('hidden');
+			$('#suma_total').append("<spam id='suma_total_number'>"+cont_suma_total+"<spam>"); // 
+
+			// hacer calculos
+			if(cont_suma_total < 4){
+				$('#r1').removeClass('hidden');
+			}
+			else if(cont_suma_total < 8){
+				$('#r2').removeClass('hidden');
+			}			
+			else{
+				$('#r3').removeClass('hidden');
+			}			
+		}
+		$(document).ready(function(){
+		slider = $('.bxslider').bxSlider({
+					adaptativeHeight:true,
+					infiniteLoop:false,
+					hideControlOnEnd:true,
+					controls:false,
+					pager: false,  // los circulitos de abajo 
+					// responsive:false,  //podria estar interesante probar esta
+					moveSlides:1,
+		});
+		
+		$('input[type="radio"]').click(function(){
+			cont_suma_total = cont_suma_total + Number(this.value);
+			if(this.name == "ultimo"){
+				mostrarResults();
+			}
+			else{
+				slider.goToNextSlide();
+			}
+			// console.log(this.id);
+			// console.log(this.name);
+			// slider.goToSlide(2)
+
+		});
+		});
+		</script>
+</head>
+	<body>
+<!--		<div id="d">
+		</div>
+-->		<div id="slider">
+		<ul class="bxslider">
+			<li>
+			  <div id="w0" >
+					
+					
+					<h1>1) ¿Qué tan difícil resulta para usted retrasar su eyaculación?</h1>
+					<span class="question"><input type="radio" value="0" /> Ninguna dificultad</span>
+					<span class="question"><input type="radio" value="1" /> Poca dificultad</span>
+					<span class="question"><input type="radio" value="2" /> Moderada dificultad</span>
+					<span class="question"><input type="radio" value="3" /> Mucha dificultad</span>
+					<span class="question"><input type="radio" value="4" /> Extremadamente difícil</span>
+					
+<!--					<a href="#" id="boton_ep"><img src="images/titulo.jpg" /></a>
+-->					
+			  </div>
+			</li><li>
+			<div id="w1"  >
+				
+				<h1>2) ¿Eyacula usted antes de lo que desea?</h1>
+								<span class="question"><input  type="radio" value="0" />Casi nunca o nunca</span>
+				<span class="question"><input  type="radio" value="1" />Menos de la mitad de las veces 25%</span>
+				<span class="question"><input  type="radio" value="2" />La mitad de las veces 50%</span>
+			  <span class="question"><input  type="radio" value="3" />Mas de la mitad de las veces 75%</span>
+				<span class="question"><input  type="radio" value="4" />Siempre o casi siempre</span>
+				<!-- <a href="#" id="boton_ep"><img src="img/posible_pasapagina.jpg" /></a> -->
+				
+			</div>
+			
+		</li>
+		<li>
+		  <div id="w3" >
+				
+				<h1>3) ¿Eyacula usted con muy poca estimulación?</h1>
+				<span class="question"><input type="radio" value="0" />Casi nunca o nunca</span>
+				<span class="question"><input type="radio" value="1" />Menos de la mitad de las veces 25%</span>
+				<span class="question"><input type="radio" value="2" />La mitad de las veces 50%</span>
+				<span class="question"><input type="radio" value="3" />Mas de la mitad de las veces 75%</span>
+				<span class="question"><input type="radio" value="4" />Siempre o casi siempre</span>
+				
+				<!-- <a href="#" id="boton_ep"><img src="img/posible_pasapagina.jpg" /></a> -->
+				
+			</div>
+		</li>
+		<li>
+		  <div id="w4" >
+				
+				<h1>4) ¿Se siente usted frustrado por eyacular antes de lo deseado?</h1>
+				
+				<span class="question"><input type="radio" value="0" />Para nada</span>
+				<span class="question"><input type="radio" value="1" />Un poco</span>
+				<span class="question"><input type="radio" value="2" />Moderado</span>
+				<span class="question"><input type="radio" value="3" />Mucho</span>
+				<span class="question"><input type="radio" value="4" />Extremadamente</span>
+				<!-- <a href="#" id="boton_ep"><img src="img/posible_pasapagina.jpg" /></a> -->
+				
+			</div>
+		</li><li>
+          <div id="w5" >
+				
+				<h1>5) ¿Lo preocupado que su tiempo de eyaculación deje a su pareja sexual insatisfecha?</h1>
+				
+				<span class="question"><input  name="ultimo" type="radio" value="0" />Para nada</span>
+				<span class="question"><input  name="ultimo" type="radio" value="1" />Un poco</span>
+				<span class="question"><input  name="ultimo" type="radio" value="2" />Moderado</span>
+				<span class="question"><input  name="ultimo" type="radio" value="3" />Mucho</span>
+				<span class="question"><input  name="ultimo" type="radio" value="4" />Extremadamente</span>
+				<!-- <a href="#" id="boton_ep"><img src="img/posible_pasapagina.jpg" /></a> -->
+				
+			</div>
+			
+		</li>
+	</ul>
+</div><!--  cierro div id slider -->
+<div id="suma_total" class="hidden">
+Su resultado es de:
+</div>
+<div id="r1" class="hidden"><p>
+Análisis de sensibilidad y especificidad, sugieren que valores menores de 8 descartan Eyaculación Precoz.</p>
+<a href="https://www.facebook.com/bostonmedicalgroup/app_173750779427513">Visítenos de todas formas</a></div>
+<div id="r2" class="hidden">
+<p>Problema Medio. Entre 9 y 10 son probablemente EP</p>
+<p>No espere más y <a href="https://www.facebook.com/bostonmedicalgroup/app_173750779427513">pida cita</a> con los Líderes Mundiales en Salud Sexual Masculina</p>
+</div>
+</div>
+<div id="r3" class="hidden">
+<p>Problema Alto. Por encima de 11 son diagnósticos EP.</p>
+<p>No espere más y <a href="https://www.facebook.com/bostonmedicalgroup/app_173750779427513">pida cita</a> con los Líderes Mundiales en Salud Sexual Masculina</p>
+
+</div>
+
+</body>
+</html>
